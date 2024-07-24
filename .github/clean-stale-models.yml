@@ -1,0 +1,43 @@
+name: "Create issue - Clean stale models dbt"
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  stale-models-prod:
+    name: "Create issue - Clean stale models"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    # environment: dev
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: dbt-macro-invocation
+        id: dbt-macro-invocation
+        run: echo "Hello world"
+        # uses: mwhitaker/dbt-action@master
+        # with:
+        #   dbt_command: "dbt run-operation drop_tables_not_updated_dbt"
+        # env:
+        #   ENV: dev
+        #   DBT_PROFILES_DIR: ../.dbt
+        #   DBT_LOG_LEVEL_FILE: none
+        #   DBT_SEND_ANONYMOUS_USAGE_STATS: False
+        #   DBT_SCHEMA_SUFFIX: GITHUB_ACTIONS
+        #   DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
+        #   DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+
+      - uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENV: dev
+          MESSAGE: ${{ steps.dbt-macro-invocation.outputs.result }}
+        with:
+          filename: .github/ISSUE_DROP_TABLES_NOT_UPDATED.md
+          assignees: fa-platform
+          milestone: 1
+          update_existing: true
