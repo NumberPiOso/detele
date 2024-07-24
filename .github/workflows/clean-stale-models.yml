@@ -39,4 +39,4 @@ jobs:
         with:
           filename: .github/ISSUE_DROP_TABLES_NOT_UPDATED.md
           assignees: numberpioso
-          update_existing: true
+          update_existing: false
