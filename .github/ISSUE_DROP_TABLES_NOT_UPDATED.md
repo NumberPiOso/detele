@@ -6,6 +6,7 @@ labels: bug
 ---
 
 This github issue is created automatically by clean-stale-models action
-----
 
-{{ env.MESSAGE }}
+```log
+"{{ env.MESSAGE }}"
+```
