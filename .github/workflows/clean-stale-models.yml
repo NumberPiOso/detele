@@ -18,7 +18,7 @@ jobs:
 
       - name: dbt-macro-invocation
         id: dbt-macro-invocation
-        run: echo "Hello world"
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
         # uses: mwhitaker/dbt-action@master
         # with:
         #   dbt_command: "dbt run-operation drop_tables_not_updated_dbt"

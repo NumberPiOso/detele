@@ -5,6 +5,7 @@ title: "{{ env.ENV }} - Drop tables not updated - {{ date | date('DD MMM') }}"
 labels: bug
 ---
 
-This github issue is created automatically by clean-stale-models actions.
+This github issue is created automatically by clean-stale-models action
+----
 
 {{ env.MESSAGE }}
