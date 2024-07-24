@@ -35,8 +35,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENV: dev
-          # MESSAGE: ${{ steps.dbt-macro-invocation.outputs.result }}
-          MESSAGE: ${{ steps.dbt-macro-invocation.outputs.result }}
+          MESSAGE: "pedro pe"
         with:
           filename: .github/ISSUE_DROP_TABLES_NOT_UPDATED.md
           assignees: numberpioso
