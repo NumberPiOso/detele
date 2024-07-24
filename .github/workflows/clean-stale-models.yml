@@ -19,17 +19,6 @@ jobs:
       - name: dbt-macro-invocation
         id: dbt-macro-invocation
         run: echo "result=some_output" >> "$GITHUB_OUTPUT"
-        # uses: mwhitaker/dbt-action@master
-        # with:
-        #   dbt_command: "dbt run-operation drop_tables_not_updated_dbt"
-        # env:
-        #   ENV: dev
-        #   DBT_PROFILES_DIR: ../.dbt
-        #   DBT_LOG_LEVEL_FILE: none
-        #   DBT_SEND_ANONYMOUS_USAGE_STATS: False
-        #   DBT_SCHEMA_SUFFIX: GITHUB_ACTIONS
-        #   DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
-        #   DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
       - uses: JasonEtco/create-an-issue@v2
         env:
