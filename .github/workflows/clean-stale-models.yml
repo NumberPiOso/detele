@@ -2,6 +2,7 @@ name: "Create issue - Clean stale models dbt"
 
 on:
   workflow_dispatch:
+  push:
 
 
 jobs:
