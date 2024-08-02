@@ -27,7 +27,7 @@ jobs:
           echo "random-meesage" >> ${{ runner.temp }}/delete_tables_not_updated_dbt.txt
 
       - name: Read models_delete.txt
-        id: read-file
+        id: write-env
         run: |
           filename="${{ runner.temp }}/delete_tables_not_updated_dbt.txt"
           MESSAGE=$(cat $filename)
