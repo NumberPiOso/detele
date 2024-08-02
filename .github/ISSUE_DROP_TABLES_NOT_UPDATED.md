@@ -8,5 +8,5 @@ labels: bug
 This github issue is created automatically by clean-stale-models action
 
 ```log
-"{{ env.MESSAGE }}"
+{{ env.MESSAGE }}
 ```

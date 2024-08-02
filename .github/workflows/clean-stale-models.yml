@@ -16,15 +16,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: dbt-macro-invocation
-        id: dbt-macro-invocation
-        run: echo "result=some_output" >> "$GITHUB_OUTPUT"
+      # - name: dbt-macro-invocation
+      #   id: dbt-macro-invocation
+      #   run: echo "result=some_output" >> "$GITHUB_OUTPUT"
 
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENV: dev
-          MESSAGE: "${{ steps.dbt-macro-invocation.outputs.result }}"
+          MESSAGE: "${{cat models_delete.txt}}"
         with:
           filename: .github/ISSUE_DROP_TABLES_NOT_UPDATED.md
           assignees: numberpioso
