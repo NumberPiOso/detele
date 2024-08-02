@@ -22,11 +22,12 @@ jobs:
       #   run: echo "result=some_output" >> "$GITHUB_OUTPUT"
 
       - uses: JasonEtco/create-an-issue@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENV: dev
-          MESSAGE: "${{cat models_delete.txt}}"
-        with:
-          filename: .github/ISSUE_DROP_TABLES_NOT_UPDATED.md
-          assignees: numberpioso
-          update_existing: false
+        - uses: JasonEtco/create-an-issue@v2
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            ENV: dev
+            MESSAGE: $(cat models_delete.txt)
+          with:
+            filename: .github/ISSUE_DROP_TABLES_NOT_UPDATED.md
+            assignees: numberpioso
+            update_existing: false
